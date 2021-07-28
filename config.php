@@ -7,7 +7,7 @@ class dbConfig {
     function dbConfig() {
         $this -> serverName = 'localhost';
         $this -> userName = 'root';
-        $this -> password = "reload15db";
+        $this -> password = "";
         $this -> dbName = "test123";
     }
 }

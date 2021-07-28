@@ -8,7 +8,7 @@
 // Database Connection
 $servername = "localhost";
 $username = "root";
-$password = "reload15db";
+$password = "";
 $dbname = "test123";
 
 // Create connection
