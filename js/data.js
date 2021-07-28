@@ -51,11 +51,13 @@ $(document).ready(function(){
 		event.preventDefault();
 		$('#save').attr('disabled','disabled');
 		var formData = $(this).serialize();
+		console.log(formData);
 		$.ajax({
 			url:"action.php",
 			method:"POST",
 			data:formData,
-			success:function(data){				
+			success:function(data){
+				console.log(data);				
 				$('#employeeForm')[0].reset();
 				$('#employeeModal').modal('hide');				
 				$('#save').attr('disabled', false);

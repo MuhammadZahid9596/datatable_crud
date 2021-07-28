@@ -1,5 +1,6 @@
 <?php 
 include('inc/header.php');
+session_start();
 ?>
 <script src="js/jquery.dataTables.min.js"></script>
 <script src="js/dataTables.bootstrap.min.js"></script>		
@@ -7,24 +8,6 @@ include('inc/header.php');
 <script src="js/data.js"></script>	
 <?php include('inc/container.php');?>
 
-<?php
-session_start();
-if(isset($_POST['submit'])){
-	if ($_POST["vercode"] != $_SESSION["vercode"] OR $_SESSION["vercode"]=='')  {
-        echo "<script>alert('Incorrect verification code');</script>" ;
-    } 
-	else{
-			//$sql = "INSERT INTO users (name, email, designation, salary, date)
-			//VALUES ('".$_POST['name']."', '".$_POST['email']."', '".$_POST['designation']."','".$_POST['salary']."','".$_POST['date']."')";
-
-			if ($conn->query($sql) === TRUE) {
-			  echo "<script>alert('Verification code match !');</script>" ;
-			} else {
-			  echo "Error: " . $sql . "<br>" . $conn->error;
-			}		
-		}
-	}
-?>
 <div class="container contact">	
 	<h2>Example: Datatables Add Edit Delete with Ajax, PHP & MySQL</h2>	
 	<div class="col-lg-10 col-md-10 col-sm-9 col-xs-12">   		
@@ -90,7 +73,7 @@ if(isset($_POST['submit'])){
 							<label for="captcha">Please Enter the Captcha Text</label>
 							<img src="captcha.php" alt="CAPTCHA" class="captcha-image"><i class="fas fa-redo refresh-captcha"></i>
 							<br>
-							<input type="text" name="vercode" class="form-control" placeholder="Verfication Code" required="required">
+							<input type="text" id="vercode" name="vercode" class="form-control" placeholder="Verfication Code" required="required">
 						</div>						
     				</div>
     				<div class="modal-footer">
